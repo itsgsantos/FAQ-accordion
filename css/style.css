@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --color01: hsl(0, 100%, 100%);
+  --color02: hsl(275, 100%, 97%);
+  --color03: hsl(292, 16%, 49%);
+  --color04: hsl(292, 42%, 14%);
+  --color05: hsl(281, 83%, 54%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  min-height: 100dvh;
+  width: 100dvw;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 30dvh;
+  background-image: url("../assets/images/background-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.component {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.faq {
+  width: 600px;
+  background-color: var(--color01);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 10px 10px hsla(292, 16%, 49%, 0.15);
+}
+
+.faq h1 {
+  color: var(--color04);
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+}
+
+.faq h1:before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 20px;
+  background: url("../assets/images/icon-star.svg") center/cover no-repeat;
+}
+
+.faq dt {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--color04);
+  font-size: 1rem;
+  line-height: 1.75;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq dt::after {
+  content: "";
+  margin-left: 30px;
+  display: inline-block;
+  min-width: 28px;
+  min-height: 28px;
+  background: url("../assets/images/icon-plus.svg") center/cover no-repeat;
+}
+
+.faq dt.active::after {
+  background: url("../assets/images/icon-minus.svg") center/cover no-repeat;
+}
+
+.faq dt:hover {
+  color: var(--color05);
+}
+
+.faq dd {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  max-width: 100%;
+  color: var(--color03);
+  display: none;
+}
+
+.faq dd.active {
+  display: block;
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 400px;
+  }
+}
+
+.faq dd:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.faq hr {
+  border: none;
+  border: 1px solid var(--color02);
+  margin: 20px 0px;
+}
